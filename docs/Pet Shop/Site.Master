@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Pet_Shop.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+  <title></title>
+  <link href="pet.css" type="text/css"rel="stylesheet" />
+  <link rel="icon" href="images/pet.png" />
+  <script type="text/javascript" src="pet.js"></script>
+  <asp:ContentPlaceHolder ID="head" runat="server">
+  </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">      
+    <div>
+      <header>
+          <img class="logo" src="images/logo.jpg" alt="Logo" />
+          <nav class="topMenu">
+            <ul>
+                <li><a href="Default.aspx">Home</a></li>
+                <li><a href="Pet1.aspx">Cats and Dogs</a></li>
+                <li><a href="Pet2.aspx">Rabbits and Fish</a></li>
+                <li><a href="Calendar.aspx">Calendar</a></li>
+            </ul>
+          </nav>
+          <h1>Pet Shop</h1>
+      </header>
+      <table>
+        <tr>
+          <td style="vertical-align: top;">
+            <p> Navigation Menu</p>
+            <asp:TreeView ID="TreeView1" runat="server"
+              DataSourceID="SiteMapDataSource1" ImageSet="Arrows" NodeIndent="0">
+              <LevelStyles>
+                <asp:TreeNodeStyle Font-Size="12pt" Font-Bold="true" ForeColor="DarkBlue" />
+                <asp:TreeNodeStyle Font-Size="10pt" Font-Bold="true" ForeColor="Black" />
+                <asp:TreeNodeStyle Font-Size="10pt" ForeColor="DarkBlue" />
+              </LevelStyles>
+            </asp:TreeView>
+            <br />
+            <asp:AdRotator ID="AdRotator1" runat="server" AdvertisementFile="~/App_Data/PetAds.xml" 
+              Target="_blank"/>
+              <p>Users online: <asp:Label ID="UserCount" runat="server"></asp:Label></p>
+          </td>          
+          <td style="vertical-align: top;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+          </td>
+        </tr>
+      </table>
+      <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />        
+        
+      <footer>
+        <!-- insert footer content here -->
+        Created by Nathaniel Johnson (not a real website)
+        <br />
+        Reach me at <a href="mailto::1086375@park.edu?Subject=Pet%20Mail" target="_top">1086375@park.edu</a>
+      </footer>
+    </div>
+    </form>
+</body>
+</html>
